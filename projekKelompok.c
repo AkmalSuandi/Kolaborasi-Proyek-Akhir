@@ -1,10 +1,12 @@
+ 
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
-// ==================================
+
 // Struct & Variabel Global
-// ==================================
+
 struct Aspirasi {
     int id;
     char nama[50];
@@ -16,9 +18,9 @@ int jumlahAspirasi = 0;               // banyak data yang terpakai
 
 const char *NAMA_FILE = "aspirasi.txt";
 
-// ==================================
+
 // PROTOTYPE FUNGSI
-// ==================================
+
 void clearInput();
 void tambahAspirasi();
 void lihatSemuaAspirasi();
@@ -29,9 +31,9 @@ void tampilkanMenu();
 void simpanKeFile();      // NEW: simpan ke file
 void loadDariFile();      // NEW: baca dari file
 
-// ==================================
+
 // Utility: bersihkan buffer input
-// ==================================	
+
 void clearInput() {
     int c;
     while ((c = getchar()) != '\n' && c != EOF) {
@@ -39,9 +41,9 @@ void clearInput() {
     }
 }
 
-// ==================================
+
 // File Processing: Simpan ke File
-// ==================================
+
 void simpanKeFile() {
     FILE *f = fopen(NAMA_FILE, "w");
 
@@ -56,3 +58,9 @@ void simpanKeFile() {
     fclose(f);
     // printf("Data berhasil disimpan ke file.\n"); // kalau mau kasih info tiap kali simpan
 }
+int main(){
+      return 0;
+
+}
+
+
