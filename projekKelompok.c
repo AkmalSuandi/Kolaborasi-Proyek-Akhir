@@ -58,9 +58,79 @@ void simpanKeFile() {
     fclose(f);
     // printf("Data berhasil disimpan ke file.\n"); // kalau mau kasih info tiap kali simpan
 }
-int main(){
-      return 0;
 
+void loadDariFile() {
+    FILE *f = fopen(NAMA_FILE, "r");
+
+    char line[400];
+
+    while (fgets(line, sizeof(line), f)) {
+        // hapus newline di akhir
+        line[strcspn(line, "\n")] = '\0';
+
+        struct Aspirasi a;
+        char *token;
+
+        // id
+        token = strtok(line, "|");
+        a.id = atoi(token);
+
+        // nama
+        token = strtok(NULL, "|");
+        strncpy(a.nama, token, sizeof(a.nama));
+        a.nama[sizeof(a.nama) - 1] = '\0';
+
+        // isi
+        token = strtok(NULL, "|");
+        strncpy(a.isi, token, sizeof(a.isi));
+        a.isi[sizeof(a.isi) - 1] = '\0';
+        
+
+        struct Aspirasi *temp =
+            (struct Aspirasi *)realloc(dataAspirasi, (jumlahAspirasi + 1) * sizeof(struct Aspirasi));
+        if (temp == NULL) {
+            printf("Memori penuh saat load data.\n");
+            fclose(f);
+        }
+        dataAspirasi = temp;
+        dataAspirasi[jumlahAspirasi] = a;
+        jumlahAspirasi++;
+    }
+
+    fclose(f);
 }
 
+// Fitur 1: Tambah Aspirasi
 
+void tambahAspirasi() {
+    struct Aspirasi a;
+
+    a.id = jumlahAspirasi + 1;
+
+    printf("\n=== Tambah Aspirasi Warga ===\n");
+    printf("Nama (boleh 'Anonim'): ");
+    clearInput();
+    fgets(a.nama, sizeof(a.nama), stdin);
+    a.nama[strcspn(a.nama, "\n")] = '\0';
+
+    printf("Isi aspirasi:\n");
+    fgets(a.isi, sizeof(a.isi), stdin);
+    a.isi[strcspn(a.isi, "\n")] = '\0';
+
+    // tambah kapasitas array dinamis (naik 1 elemen)
+    struct Aspirasi *temp =
+        (struct Aspirasi *)realloc(dataAspirasi, (jumlahAspirasi + 1) * sizeof(struct Aspirasi));
+
+    dataAspirasi = temp;
+    dataAspirasi[jumlahAspirasi] = a;
+    jumlahAspirasi++;
+
+    // simpan ke file setiap kali ada penambahan
+    simpanKeFile();
+
+    printf("Aspirasi tersimpan dengan ID %d.\n", a.id);
+}
+
+int main(){
+    return 0;
+}
