@@ -131,6 +131,24 @@ void tambahAspirasi() {
     printf("Aspirasi tersimpan dengan ID %d.\n", a.id);
 }
 
+// Fitur 2: Lihat Semua Aspirasi
+
+void lihatSemuaAspirasi() {
+    if (jumlahAspirasi == 0) {
+        printf("\nBelum ada aspirasi.\n");
+        return;
+    }
+
+    printf("\n=== Daftar Semua Aspirasi Warga ===\n");
+    for (int i = 0; i < jumlahAspirasi; i++) {
+        printf("--------------------------------------\n");
+        printf("ID       : %d\n", dataAspirasi[i].id);
+        printf("Nama     : %s\n", dataAspirasi[i].nama);
+        printf("Aspirasi : %s\n", dataAspirasi[i].isi);
+    }
+    printf("--------------------------------------\n");
+}
+
 int main(){
     return 0;
 }
