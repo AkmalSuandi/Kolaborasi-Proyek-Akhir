@@ -190,3 +190,29 @@ void cariAspirasiByNama() {
         printf("--------------------------------------\n");
     }
 }
+
+// Fitur 4: Sort Aspirasi berdasarkan Nama (Bubble Sort)
+
+void sortAspirasiByNama() {
+    if (jumlahAspirasi == 0) {
+        printf("\nBelum ada aspirasi.\n");
+        return;
+    }
+
+    printf("\nMengurutkan aspirasi berdasarkan nama (A-Z)...\n");
+
+    for (int i = 0; i < jumlahAspirasi - 1; i++) {
+        for (int j = 0; j < jumlahAspirasi - 1 - i; j++) {
+            if (strcmp(dataAspirasi[j].nama, dataAspirasi[j + 1].nama) > 0) {
+                struct Aspirasi temp = dataAspirasi[j];
+                dataAspirasi[j] = dataAspirasi[j + 1];
+                dataAspirasi[j + 1] = temp;
+            }
+        }
+    }
+
+    // simpan perubahan urutan ke file
+    simpanKeFile();
+
+    printf("Data aspirasi berhasil diurutkan.\n");
+}
