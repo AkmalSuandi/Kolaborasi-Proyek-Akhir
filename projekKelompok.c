@@ -152,3 +152,41 @@ void lihatSemuaAspirasi() {
 int main(){
     return 0;
 }
+
+// ==================================
+// Fitur 3: Cari Aspirasi berdasarkan Nama (Searching)
+// ==================================
+void cariAspirasiByNama() {
+    if (jumlahAspirasi == 0) {
+        printf("\nBelum ada aspirasi.\n");
+        return;
+    }
+
+    char namaCari[50];
+    printf("\n=== Cari Aspirasi berdasarkan Nama ===\n");
+    printf("Masukkan nama (atau 'Anonim'): ");
+    clearInput();
+    fgets(namaCari, sizeof(namaCari), stdin);
+    namaCari[strcspn(namaCari, "\n")] = '\0';
+
+    int found = 0;
+
+       for (int i = 0; i < jumlahAspirasi; i++) {
+        if (strcmp(dataAspirasi[i].nama, namaCari) == 0) {
+            if (!found) {
+                printf("\nAspirasi yang ditemukan:\n");
+            }
+            printf("--------------------------------------\n");
+            printf("ID       : %d\n", dataAspirasi[i].id);
+            printf("Nama     : %s\n", dataAspirasi[i].nama);
+            printf("Aspirasi : %s\n", dataAspirasi[i].isi);
+            found = 1;
+        }
+    }
+
+    if (!found) {
+        printf("Tidak ada aspirasi dari '%s'.\n", namaCari);
+    } else {
+        printf("--------------------------------------\n");
+    }
+}
