@@ -149,10 +149,6 @@ void lihatSemuaAspirasi() {
     printf("--------------------------------------\n");
 }
 
-int main(){
-    return 0;
-}
-
 // ==================================
 // Fitur 3: Cari Aspirasi berdasarkan Nama (Searching)
 // ==================================
@@ -215,4 +211,9 @@ void sortAspirasiByNama() {
     simpanKeFile();
 
     printf("Data aspirasi berhasil diurutkan.\n");
+}
+
+
+int main(){
+    return 0;
 }
