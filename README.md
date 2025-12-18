@@ -1,0 +1,1 @@
+Sistem penyimpanan dan pengelolaan aspirasi warga dalam sebuah RT/RW ini merupakan proyek ahkir dari kelompok 6. Proyek ini brtujuan untuk memberikan kemudahan dalam 2 sudut pandang dimana dari warga sendiri dapat dengan mudah memberikan aspirasi dan Ketua RT/RW dapat lebih mudah menyimpan dan mengelola data aspirasi warga itu  sendiri.
