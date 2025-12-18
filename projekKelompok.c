@@ -213,7 +213,6 @@ void sortAspirasiByNama() {
     printf("Data aspirasi berhasil diurutkan.\n");
 }
 
-
 int main(){
     return 0;
 }
