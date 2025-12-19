@@ -1,5 +1,4 @@
-Sistem penyimpanan dan pengelolaan aspirasi warga dalam sebuah RT/RW ini merupakan proyek ahkir dari kelompok 6. Proyek ini brtujuan untuk memberikan kemudahan dalam 2 sudut pandang dimana dari warga sendiri dapat dengan mudah memberikan aspirasi dan Ketua RT/RW dapat lebih mudah menyimpan dan mengelola data aspirasi warga itu  sendiri.
-
+Sistem penyimpanan dan pengelolaan aspirasi warga dalam sebuah RT/RW ini merupakan proyek ahkir dari kelompok 6.
 Anggota Kelompok:
 1. Ahmad Rovii (2500269)
 2. Alfons Ikhsan Dwi Pamungkas (2512339)
@@ -9,4 +8,10 @@ Anggota Kelompok:
 6. Ridwan Akmal Suandi (2504828)
 7. Sulthon Al Waafi (2502413)
 
-
+Proyek ini memiliki tujuan sebagai berikut:
+-Merancang aplikasi penyimpanan dan pengelolaan aspirasi warga dalam sebuah RT/RW.
+-Memudahkan Ketua RT/RW dalam menerima dan menyimpan seluruh aspirasi Masyarakat.
+-Membantu Masyarakat menyampaikan aspirasi nya tanpa terkendala.
+-Menjadikan sistem pada sebuah RT/RW terarah.
+-Menjadikan aplikasi penyimpanan dan pengelolaan aspirasi warga lebh efektif dan berkesinambungan dan lebih efektif dalam sebuah RT/RW.
+-Membantu penyusunan laporan yang lebih optimal.
