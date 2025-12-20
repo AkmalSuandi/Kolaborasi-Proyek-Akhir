@@ -198,4 +198,16 @@ void sortAspirasiByNama() {
     printf("Data aspirasi berhasil diurutkan.\n");
 }
 
-    
+void tampilkanMenu() {
+    printf("\n=====================================\n");
+    printf("       SISTEM ASPIRASI WARGA RT\n");
+    printf("=====================================\n");
+    printf("1. Tambah Aspirasi Warga\n");
+    printf("2. Lihat Semua Aspirasi\n");
+    printf("3. Cari Aspirasi berdasarkan Nama\n");
+    printf("4. Urutkan Aspirasi berdasarkan Nama (A-Z)\n");
+    printf("5. Hapus Aspirasi berdasarkan ID\n");
+    printf("6. Keluar\n");
+    printf("Pilih menu (1-6): ");
+}
+
