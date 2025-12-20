@@ -5,21 +5,18 @@
 #include <string.h>
 
 
-// Struct & Variabel Global
-
 struct Aspirasi {
     int id;
     char nama[50];
     char isi[200];
 };
 
-struct Aspirasi *dataAspirasi = NULL; // array dinamis
-int jumlahAspirasi = 0;               // banyak data yang terpakai
+struct Aspirasi *dataAspirasi = NULL; 
+int jumlahAspirasi = 0;               
 
 const char *NAMA_FILE = "aspirasi.txt";
 
 
-// PROTOTYPE FUNGSI
 
 void clearInput();
 void tambahAspirasi();
@@ -28,26 +25,23 @@ void cariAspirasiByNama();
 void sortAspirasiByNama();
 void hapusAspirasiByID();
 void tampilkanMenu();
-void simpanKeFile();      // NEW: simpan ke file
-void loadDariFile();      // NEW: baca dari file
+void simpanKeFile();      
+void loadDariFile();     
 
 
-// Utility: bersihkan buffer input
 
 void clearInput() {
     int c;
     while ((c = getchar()) != '\n' && c != EOF) {
-        // buang karakter
+
     }
 }
 
 
-// File Processing: Simpan ke File
 
 void simpanKeFile() {
     FILE *f = fopen(NAMA_FILE, "w");
 
-    // Format: id|nama|isi
     for (int i = 0; i < jumlahAspirasi; i++) {
         fprintf(f, "%d|%s|%s\n",
                 dataAspirasi[i].id,
@@ -56,7 +50,6 @@ void simpanKeFile() {
     }
 
     fclose(f);
-    // printf("Data berhasil disimpan ke file.\n"); // kalau mau kasih info tiap kali simpan
 }
 
 void loadDariFile() {
@@ -65,22 +58,19 @@ void loadDariFile() {
     char line[400];
 
     while (fgets(line, sizeof(line), f)) {
-        // hapus newline di akhir
+
         line[strcspn(line, "\n")] = '\0';
 
         struct Aspirasi a;
         char *token;
 
-        // id
         token = strtok(line, "|");
         a.id = atoi(token);
 
-        // nama
         token = strtok(NULL, "|");
         strncpy(a.nama, token, sizeof(a.nama));
         a.nama[sizeof(a.nama) - 1] = '\0';
 
-        // isi
         token = strtok(NULL, "|");
         strncpy(a.isi, token, sizeof(a.isi));
         a.isi[sizeof(a.isi) - 1] = '\0';
@@ -100,7 +90,6 @@ void loadDariFile() {
     fclose(f);
 }
 
-// Fitur 1: Tambah Aspirasi
 
 void tambahAspirasi() {
     struct Aspirasi a;
@@ -117,7 +106,6 @@ void tambahAspirasi() {
     fgets(a.isi, sizeof(a.isi), stdin);
     a.isi[strcspn(a.isi, "\n")] = '\0';
 
-    // tambah kapasitas array dinamis (naik 1 elemen)
     struct Aspirasi *temp =
         (struct Aspirasi *)realloc(dataAspirasi, (jumlahAspirasi + 1) * sizeof(struct Aspirasi));
 
@@ -125,13 +113,11 @@ void tambahAspirasi() {
     dataAspirasi[jumlahAspirasi] = a;
     jumlahAspirasi++;
 
-    // simpan ke file setiap kali ada penambahan
     simpanKeFile();
 
     printf("Aspirasi tersimpan dengan ID %d.\n", a.id);
 }
 
-// Fitur 2: Lihat Semua Aspirasi
 
 void lihatSemuaAspirasi() {
     if (jumlahAspirasi == 0) {
@@ -153,9 +139,7 @@ int main(){
     return 0;
 }
 
-// ==================================
-// Fitur 3: Cari Aspirasi berdasarkan Nama (Searching)
-// ==================================
+
 void cariAspirasiByNama() {
     if (jumlahAspirasi == 0) {
         printf("\nBelum ada aspirasi.\n");
@@ -191,9 +175,6 @@ void cariAspirasiByNama() {
     }
 }
 
-// ==================================
-// Fitur 4: Sort Aspirasi berdasarkan Nama (Bubble Sort)
-// ==================================
 void sortAspirasiByNama() {
     if (jumlahAspirasi == 0) {
         printf("\nBelum ada aspirasi.\n");
@@ -212,7 +193,9 @@ void sortAspirasiByNama() {
         }
     }
 
-    // simpan perubahan urutan ke file
     simpanKeFile();
 
     printf("Data aspirasi berhasil diurutkan.\n");
+}
+
+    
