@@ -135,10 +135,6 @@ void lihatSemuaAspirasi() {
     printf("--------------------------------------\n");
 }
 
-int main(){
-    return 0;
-}
-
 
 void cariAspirasiByNama() {
     if (jumlahAspirasi == 0) {
@@ -198,21 +194,7 @@ void sortAspirasiByNama() {
     printf("Data aspirasi berhasil diurutkan.\n");
 }
 
- tambah-fitur-menu
-void tampilkanMenu() {
-    printf("\n=====================================\n");
-    printf("       SISTEM ASPIRASI WARGA RT\n");
-    printf("=====================================\n");
-    printf("1. Tambah Aspirasi Warga\n");
-    printf("2. Lihat Semua Aspirasi\n");
-    printf("3. Cari Aspirasi berdasarkan Nama\n");
-    printf("4. Urutkan Aspirasi berdasarkan Nama (A-Z)\n");
-    printf("5. Hapus Aspirasi berdasarkan ID\n");
-    printf("6. Keluar\n");
-    printf("Pilih menu (1-6): ");
-}
-
-    void hapusAspirasiByID() {
+ void hapusAspirasiByID() {
     if (jumlahAspirasi == 0) {
         printf("\nBelum ada aspirasi.\n");
         return;
@@ -245,4 +227,62 @@ void tampilkanMenu() {
 
     printf("Aspirasi dengan ID %d telah dihapus.\n", idHapus);
 }
+
+void tampilkanMenu() {
+    printf("\n=====================================\n");
+    printf("       SISTEM ASPIRASI WARGA RT\n");
+    printf("=====================================\n");
+    printf("1. Tambah Aspirasi Warga\n");
+    printf("2. Lihat Semua Aspirasi\n");
+    printf("3. Cari Aspirasi berdasarkan Nama\n");
+    printf("4. Urutkan Aspirasi berdasarkan Nama (A-Z)\n");
+    printf("5. Hapus Aspirasi berdasarkan ID\n");
+    printf("6. Keluar\n");
+    printf("Pilih menu (1-6): ");
+}
+
+   int main() {
+    int pilihan;
+
+    loadDariFile();
+
+    do {
+        tampilkanMenu();
+        if (scanf("%d", &pilihan) != 1) {
+            printf("Input harus berupa angka.\n");
+            clearInput();
+            continue;
+        }
+
+        switch (pilihan) {
+            case 1:
+                tambahAspirasi();
+                break;
+            case 2:
+                lihatSemuaAspirasi();
+                break;
+            case 3:
+                cariAspirasiByNama();
+                break;
+            case 4:
+                sortAspirasiByNama();
+                break;
+            case 5:
+                hapusAspirasiByID();
+                break;
+            case 6:
+                printf("Keluar dari program...\n");
+                break;
+            default:
+                printf("Pilihan tidak valid.\n");
+        }
+
+    } while (pilihan != 6);
+
+    simpanKeFile();
+    free(dataAspirasi);
+
+    return 0;
+}
+
 
