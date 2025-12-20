@@ -154,7 +154,7 @@ void cariAspirasiByNama() {
 
     char namaCari[50];
     printf("\n=== Cari Aspirasi berdasarkan Nama ===\n");
-    printf("Masukkan nama (atau 'Anonim'): ");
+    printf("Masukkan nama : ");
     clearInput();
     fgets(namaCari, sizeof(namaCari), stdin);
     namaCari[strcspn(namaCari, "\n")] = '\0';
