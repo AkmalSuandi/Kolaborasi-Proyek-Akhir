@@ -198,4 +198,36 @@ void sortAspirasiByNama() {
     printf("Data aspirasi berhasil diurutkan.\n");
 }
 
-    
+    void hapusAspirasiByID() {
+    if (jumlahAspirasi == 0) {
+        printf("\nBelum ada aspirasi.\n");
+        return;
+    }
+
+    int idHapus;
+    printf("\n=== Hapus Aspirasi ===\n");
+    printf("Masukkan ID aspirasi yang ingin dihapus: ");
+    scanf("%d", &idHapus);
+
+    int index = -1;
+    for (int i = 0; i < jumlahAspirasi; i++) {
+        if (dataAspirasi[i].id == idHapus) {
+            index = i;
+            break;
+        }
+    }
+
+    if (index == -1) {
+        printf("Aspirasi dengan ID %d tidak ditemukan.\n", idHapus);
+        return;
+    }
+
+    for (int i = index; i < jumlahAspirasi - 1; i++) {
+        dataAspirasi[i] = dataAspirasi[i + 1];
+    }
+    jumlahAspirasi--;
+
+    simpanKeFile();
+
+    printf("Aspirasi dengan ID %d telah dihapus.\n", idHapus);
+}
