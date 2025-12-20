@@ -101,7 +101,7 @@ void tambahAspirasi() {
     a.id = jumlahAspirasi + 1;
 
     printf("\n=== Tambah Aspirasi Warga ===\n");
-    printf("Nama (boleh 'Anonim'): ");
+    printf("Nama : ");
     clearInput();
     fgets(a.nama, sizeof(a.nama), stdin);
     a.nama[strcspn(a.nama, "\n")] = '\0';
