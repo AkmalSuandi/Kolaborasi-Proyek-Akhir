@@ -91,6 +91,10 @@ void loadDariFile() {
 }
 
 
+//===========================
+//FITUR MENAMBAHKAN ASPIRASI
+//===========================
+
 void tambahAspirasi() {
     struct Aspirasi a;
 
@@ -119,6 +123,9 @@ void tambahAspirasi() {
 }
 
 
+//=================================
+//FITUR MENAMPILKAN SEMUA ASPIRASI
+//=================================
 void lihatSemuaAspirasi() {
     if (jumlahAspirasi == 0) {
         printf("\nBelum ada aspirasi.\n");
@@ -136,6 +143,9 @@ void lihatSemuaAspirasi() {
 }
 
 
+//===================================
+//FITUR MENCARI ASPIRASI SESUAI NAMA
+//===================================
 void cariAspirasiByNama() {
     if (jumlahAspirasi == 0) {
         printf("\nBelum ada aspirasi.\n");
@@ -171,6 +181,9 @@ void cariAspirasiByNama() {
     }
 }
 
+//=======================================
+//FITUR MENGURUTKAN ASPIRASI SESUAI NAMA
+//=======================================
 void sortAspirasiByNama() {
     if (jumlahAspirasi == 0) {
         printf("\nBelum ada aspirasi.\n");
@@ -193,6 +206,11 @@ void sortAspirasiByNama() {
 
     printf("Data aspirasi berhasil diurutkan.\n");
 }
+
+
+//====================
+//FITUR HAPUS ASPIRASI
+//====================
 
   void hapusAspirasiByID() {
     if (jumlahAspirasi == 0) {
@@ -244,7 +262,6 @@ void tampilkanMenu() {
 int main() {
     int pilihan;
 
-    // Load data dari file saat program mulai
     loadDariFile();
 
     do {
